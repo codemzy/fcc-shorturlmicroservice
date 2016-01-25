@@ -11,7 +11,7 @@ MongoClient.connect('mongodb://localhost:27017/url', function(err, db) {
     console.log("Successfully connected to MongoDB.");
     
     // add url via dynamic route
-    router.route('/:url')
+    router.route('/:url(*)')
     .get(function(request, response){
         var url = request.params.url;
         var httpProto = request.headers["x-forwarded-proto"];
@@ -20,7 +20,7 @@ MongoClient.connect('mongodb://localhost:27017/url', function(err, db) {
             response.status(404).json({ error: "URL invalid"});
         }
         else { 
-            if (!(url.match(/(http:\/\/)/i)) || !(url.match(/(https:\/\/)/i))) {
+            if (!(url.match(/(http:\/\/)/i)) && !(url.match(/(https:\/\/)/i))) {
                 url = "http://" + url;
             }
             

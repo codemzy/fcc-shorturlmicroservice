@@ -20,3 +20,11 @@ body {
    color: #ffffff;
    border: 3px solid #ffffff;
 }
+
+a {
+    color: #ffffff;
+}
+
+a:hover {
+    color: #D35400;
+}

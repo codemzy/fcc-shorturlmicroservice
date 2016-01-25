@@ -10,10 +10,13 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/public/html/index.html');
 });
 
-// require our new route modules
+// require route modules
+var newUrlForm = require('./routes/newform');
 var newUrl = require('./routes/new');
 
-// all requests are dispatched to the new routers
+
+// all requests are dispatched to the routers
+app.use('/new_form', newUrlForm);
 app.use('/new', newUrl);
 
 
@@ -21,3 +24,4 @@ app.use('/new', newUrl);
 app.listen(app.get('port'), function() {
     console.log('Express server listening on port', app.get('port'));
 });
+    

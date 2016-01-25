@@ -15,18 +15,18 @@
             <p>Visit that shortened URL, and it will redirect to the original link.</p>
             <h3>EXAMPLE:</h3>
             <ul>
-                <li>/new/https://www.google.com</li>
-                <li>/new/http://freecodecamp.com/news</li>
+                <li><a href="/new/https://www.google.com">/new/https://www.google.com</a></li>
+                <li><a href="/new/http://freecodecamp.com/news">/new/http://freecodecamp.com/news</a></li>
             </ul>
             <h3>BONUS:</h3>
             <p>Alternatively, enter your URL in the form to get the shortened URL.</p>
         </div>
         <div class="col-md-6">
             <div class="well">
-                <form>
+                <form action="/new_form" method="POST">
                     <div class="form-group">
                         <label for="longUrl">URL</label>
-                        <input type="text" class="form-control" id="longUrl" placeholder="http://www.yoururl.com">
+                        <input type="text" name="url" class="form-control" id="longUrl" placeholder="http://www.yoururl.com">
                     </div>
                     <button type="submit" class="btn btn-block btn-submit">Submit</button>
                 </form>
