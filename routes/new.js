@@ -3,9 +3,9 @@ var router = express.Router();
 
 var MongoClient = require('mongodb').MongoClient,
     assert = require('assert');
-    
+
 // connect to the MongoDB database
-MongoClient.connect('mongodb://localhost:27017/url', function(err, db) {
+MongoClient.connect(process.env.MONGO_LAB_URL, function(err, db) {
 
     assert.equal(null, err);
     console.log("Successfully connected to MongoDB.");
