@@ -1,18 +1,9 @@
-var express = require('express');
-var router = express.Router();
 
-var MongoClient = require('mongodb').MongoClient,
-    assert = require('assert');
+var assert = require('assert');
 
-// connect to the MongoDB database
-MongoClient.connect(process.env.MONGO_LAB_URL, function(err, db) {
-
-    assert.equal(null, err);
-    console.log("Successfully connected to MongoDB.");
-    
+module.exports = function(app, db) {
     // add url via dynamic route
-    router.route('/:url(*)')
-    .get(function(request, response){
+    app.get('/new/:url(*)', function(request, response){
         var url = request.params.url;
         var httpProto = request.headers["x-forwarded-proto"];
         var myDomain = request.headers.host;
@@ -46,7 +37,4 @@ MongoClient.connect(process.env.MONGO_LAB_URL, function(err, db) {
                 });
         }
     });
-
-});
-
-module.exports = router;
+};
