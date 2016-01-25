@@ -4,7 +4,7 @@ var assert = require('assert');
 module.exports = function(app, db) {
     // add url via dynamic route
     app.get('/new/:url(*)', function(request, response){
-        var url = request.params.url;
+        var url = request.url.slice(5);
         var httpProto = request.headers["x-forwarded-proto"];
         var myDomain = request.headers.host;
         if (url.match(/[\s]/i) || !(url.match(/[\.]/g))) {
