@@ -10,7 +10,7 @@ var MongoClient = require('mongodb').MongoClient,
     assert = require('assert');
 
 // connect to the MongoDB database
-MongoClient.connect(process.env.MONGO_LAB_URL, function(err, db) {
+MongoClient.connect(process.env.MONGO_URL, function(err, db) {
 
     assert.equal(null, err);
     console.log("Successfully connected to MongoDB.");
